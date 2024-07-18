@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-
+import re
 """
 Write a script that reads stdin line by line and computes metrics:
 
@@ -15,13 +15,13 @@ if a status code doesn’t appear or is not an integer, don’t print anything f
 format: <status code>: <number>
 status codes should be printed in ascending order
 """
-status_codes = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, ;'404': 0, '405': 0, '500': 0}
+status_codes = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
 total_size = 0
 count = 0
 log_format = r'^\S+ - \[.*\] "GET /projects/260 HTTP/1\.1" (\d{3}) (\d+)$'
 try:
     for line in sys.stdin:
-        match = re.match(log_match, line.strip())
+        match = re.match(log_format, line.strip())
         if match:
             status_code, file_size = match.groups()
             if status_code in status_codes:
