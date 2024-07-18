@@ -20,14 +20,19 @@ try:
                 status_codes[status_code] += 1
             total_size += int(file_size)
             count += 1
+
             if count == 10:
                 count = 0
                 print('File size: {}'.format(total_size))
                 for key, value in sorted(status_codes.items()):
                     if value != 0:
                         print('{}: {}'.format(key, value))
+except KeyboardInterrupt:
+    pass
+
 except Exception as err:
     pass
+
 finally:
     print('File size: {}'.format(total_size))
     for key, value in sorted(status_codes.items()):
