@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 
+"""0. UTF-8 Validation"""
 def validUTF8(data):
+    """
+    Write a method that determines if a given data
+    set represents a valid UTF-8 encoding.
+    """
     counter = 0
     for byte in data:
         byte_bin = format(byte, '08b')  # Convert byte to binary string
