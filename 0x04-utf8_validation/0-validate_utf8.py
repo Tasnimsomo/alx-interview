@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 """0. UTF-8 Validation"""
+
+
 def validUTF8(data):
     """
     Write a method that determines if a given data
@@ -26,7 +28,7 @@ def validUTF8(data):
             if byte_bin[:2] != '10':
                 return False
             counter -= 1
-            
+
             if counter < 0:
                 return False
 
